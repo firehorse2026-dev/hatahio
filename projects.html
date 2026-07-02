@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects & Deployments | Mars Signs Qatar</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Projects Page - Matching index.html aesthetic */
+        body {
+            background-color: var(--bg-silver);
+        }
+        
+        .hero-section {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            margin-top: 100px;
+            padding: 60px 20px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero-content .section-tag {
+            color: var(--accent-teal);
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px 100px;
+        }
+        
+        .project-card {
+            background: var(--pure-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-elevation);
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: inherit;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .card-image-wrapper {
+            height: 260px;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+        
+        .card-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .project-card:hover .card-image-wrapper img {
+            transform: scale(1.08);
+        }
+        
+        .card-content {
+            padding: 28px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-meta {
+            color: var(--accent-teal);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 14px;
+            line-height: 1.3;
+        }
+        
+        .card-excerpt {
+            color: var(--text-body);
+            font-size: 1rem;
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Header (same as index.html) -->
+    <header id="main-header" class="floating-header">
+        <div class="header-container">
+            <a href="index.html" class="logo" aria-label="Mars Signs Home">
+                <img src="https://marssigns.com/wp-content/uploads/2024/09/marssigns.png" alt="Mars Signs Logo" width="172" height="47" class="brand-logo">
+            </a>
+            <nav class="primary-nav">
+                <a href="index.html#solutions">Solutions</a>
+                <a href="index.html#about">About Us</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="blog.html">Insights</a>
+                <a href="index.html#contact" class="btn-primary">Work With Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section - Floating on silver background -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <p class="section-tag">PORTFOLIO</p>
+            <h1 class="section-title">Core Production Divisions</h1>
+            <p class="section-text" style="font-size: 1.25rem; max-width: 600px; margin: 0 auto;">
+                Scalable, high-impact structural branding solutions.
+            </p>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <main class="container">
+        <div class="project-grid">
+            <a href="project-exhibition.html" class="project-card fade-in-section">
+                <div class="card-image-wrapper">
+                    <img src="./images/1400/20341388/exibition-graphics-1aSu41fe87ZLRt1886na6A.jpg" alt="Exhibition Graphics">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">Corporate Events • Doha</div>
+                    <h3 class="card-title">Exhibition Graphics</h3>
+                    <p class="card-excerpt">Modular, high-durability visual architecture designed to command authority.</p>
+                </div>
+            </a>
+
+            <a href="project-facades.html" class="project-card fade-in-section">
+                <div class="card-image-wrapper">
+                    <img src="./images/460/20854829/shop-facade-marssign-contact-us-4qo4-RxrtQDIbpQvfnCMsQ.jpg" alt="Shop Facades">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">Architectural • Msheireb</div>
+                    <h3 class="card-title">Architectural Shop Facades</h3>
+                    <p class="card-excerpt">Weather-resistant, premium facade materials engineered for the Gulf climate.</p>
+                </div>
+            </a>
+
+            <a href="project-engraving.html" class="project-card fade-in-section">
+                <div class="card-image-wrapper">
+                    <img src="./images/1024/20341072/steps-name-engraved-pen-Kje-d--64G574HPLc-7npQ.jpg" alt="Precision Engraving">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">Corporate Identity • West Bay</div>
+                    <h3 class="card-title">Precision Engraving</h3>
+                    <p class="card-excerpt">Tactile micro-branding through CNC precision engraving for executive gifting.</p>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid reveal-fade">
+            <div class="footer-brand">
+                <h3>MARS SIGN</h3>
+                <p>With Mars Sign & Crafts, every detail matters.</p>
+            </div>
+            <nav class="footer-nav" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="footer-col">
+                    <p class="section-tag">RESOURCES</p>
+                    <ul>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="projects.html">Our Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <p class="section-tag">CONNECT</p>
+                    <ul>
+                        <li><a href="index.html#contact">Request Quote</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="footer-bottom container">
+            <p>© 2026 Mars Sign & Craft.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
