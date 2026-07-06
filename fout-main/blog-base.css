@@ -1,0 +1,285 @@
+:root {
+    --bg-color: #ffffff;
+    --text-primary: #111111;
+    --text-secondary: #6f6f6f;
+    --border-color: #ececec;
+    --header-bg: rgba(255, 255, 255, 0.92);
+}
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        sans-serif;
+    background: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* ================= HEADER ================= */
+
+#main-header {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.6rem;
+    background: var(--header-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 30px;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: opacity 0.25s ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.6;
+}
+
+/* ================= MAIN CONTAINER ================= */
+
+.project-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 130px auto 80px;
+    padding: 0 2rem;
+}
+
+.project-container h1 {
+    font-size: clamp(2.4rem, 6vw, 5rem);
+    line-height: 0.95;
+    font-weight: 500;
+    letter-spacing: -0.05em;
+    margin-bottom: 3rem;
+}
+
+/* ================= BLOG GRID (IMPLEMENTATION UPDATES) ================= */
+
+.blog-grid {
+    display: grid;
+    /* Directive: Mobile: Display 3 blog cards per row */
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+    align-items: stretch;
+}
+
+/* Directive: Desktop: Display 5 blog cards per row */
+@media (min-width: 1500px) {
+    .blog-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* ================= UNIFORM BLOG CARDS ================= */
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%; /* Equal height enforcement */
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 22px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* ================= IMAGE HANDLING & STABILITY ================= */
+
+.blog-card-image-wrapper {
+    width: 100%;
+    height: 200px; /* Fixed dimension container */
+    background-color: #f2f2f2; /* Fallback placeholder color */
+    flex-shrink: 0;
+}
+
+.blog-card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prevent stretching/distortion */
+    display: block;
+}
+
+/* (Legacy target fallback for unstructured html) */
+.blog-card > img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: #f2f2f2;
+    display: block;
+    flex-shrink: 0;
+}
+
+/* ================= CONTENT ================= */
+
+.blog-card-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Pushes the read-more button to the bottom */
+    padding: 1.2rem;
+}
+
+.blog-meta {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    margin-bottom: 0.7rem;
+}
+
+.blog-card h2 {
+    font-size: 1.02rem;
+    line-height: 1.35;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.8rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Uniform title lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ================= EXCERPT (Limited to ~3 words/short) ================= */
+
+.blog-excerpt {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin-bottom: 1.2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* Keeping it short as requested */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ================= FOOTER ================= */
+
+.read-more {
+    margin-top: auto;
+    font-size: 0.76rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-primary);
+}
+
+/* ================= ARTICLE PAGE ================= */
+
+.project-content {
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.project-content h1 {
+    font-size: clamp(2.8rem, 7vw, 6rem);
+    line-height: 0.95;
+    font-weight: 500;
+    letter-spacing: -0.06em;
+    margin-bottom: 2rem;
+}
+
+.project-content img {
+    width: 100%;
+    max-height: 650px;
+    object-fit: cover;
+    border-radius: 24px;
+    margin-bottom: 2.5rem;
+}
+
+.project-content p {
+    font-size: 1.04rem;
+    line-height: 1.95;
+    color: #2b2b2b;
+    margin-bottom: 2rem;
+}
+
+/* ================= BUTTON ================= */
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    border-radius: 999px;
+    background: var(--text-primary);
+    color: white;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+}
+
+/* ================= MOBILE EXCEPTIONS ================= */
+
+@media (max-width: 768px) {
+    #main-header {
+        padding: 0.9rem 1.2rem;
+    }
+    .nav-links {
+        gap: 1rem;
+    }
+    .project-container {
+        margin-top: 110px;
+        padding: 0 1rem;
+    }
+    .blog-grid {
+        gap: 1.5rem;
+    }
+    .project-content p {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+}

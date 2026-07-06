@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exhibition Graphics | Core Production | Mars Signs</title>
+    <style>
+        /* Core Reset & Minimalist Palette */
+        :root {
+            --bg-color: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --border-color: #e5e5e5;
+            --header-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .loading-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--border-color);
+            border-top: 2px solid var(--text-primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Fade-In Motion Physics */
+        .fade-in-section, .reveal-fade {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .fade-in-section.is-visible, .reveal-fade.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header & Navigation */
+        #main-header {
+            position: fixed;
+            top: 20px;
+            left: 5%;
+            width: 90%;
+            background: var(--header-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .logo img {
+            height: 32px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-secondary);
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        /* Dropdown Logic */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            background: none;
+            border: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 1rem;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Project Hero */
+        .project-hero {
+            margin-top: 120px;
+            width: 100%;
+            height: 60vh;
+            background-color: var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Project Layout Grid */
+        .project-container {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        @media (min-width: 1024px) {
+            .project-container {
+                grid-template-columns: 3fr 1fr;
+            }
+        }
+
+        /* Project Meta & Content */
+        .project-header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 2rem;
+        }
+
+        .project-header h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .project-meta-data {
+            display: flex;
+            gap: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .project-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .project-content img {
+            width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            background-color: var(--border-color);
+        }
+
+        /* Sticky Sidebar CTA */
+        .sidebar-panel {
+            position: sticky;
+            top: 120px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+        }
+
+        .sidebar-panel h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-panel p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: var(--text-primary);
+            color: var(--bg-color);
+            text-align: center;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-primary:hover {
+            transform: scale(0.98);
+        }
+
+        /* Related Projects Bottom Panel */
+        .related-panel {
+            max-width: 1400px;
+            margin: 0 auto 6rem;
+            padding: 0 2rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 4rem;
+        }
+
+        .related-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2rem;
+        }
+
+        .related-header h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        .related-link {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        .related-link:hover {
+            transform: translateX(5px);
+        }
+
+        .image-gallery-bottom {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .image-gallery-bottom img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-gallery-bottom img:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Global Loader -->
+    <div class="loading-overlay" id="global-loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header id="main-header">
+        <div class="logo">
+            <a href="index.html" class="async-click">
+                <img src="./images/1024/20885491/Mars-logo-PpRQrZOCPddFumb2s9tzmg.svg" alt="Mars Signs Logo">
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="javascript:history.back()" class="back-btn async-click">
+                <span>←</span> Back to Overview
+            </a>
+            <div class="dropdown">
+                <button class="dropdown-toggle" id="work-with-us-btn">
+                    Divisions <span>↓</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="#" class="async-click">Exhibition Graphics</a>
+                    <a href="#" class="async-click">Shop Facades</a>
+                    <a href="#" class="async-click">Precision Engraving</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Project Hero -->
+    <section class="project-hero fade-in-section">
+        <img src="./images/1400/20341388/exibition-graphics-1aSu41fe87ZLRt1886na6A.jpg" alt="Exhibition Graphics Doha">
+    </section>
+
+    <!-- Project Body Grid -->
+    <main class="project-container">
+        
+        <!-- Left Column: Reading Experience -->
+        <article class="project-content">
+            <header class="project-header fade-in-section">
+                <h1>High-Impact Exhibition Graphics</h1>
+                <div class="project-meta-data">
+                    <span><strong>Sector:</strong> Corporate Events</span>
+                    <span><strong>Location:</strong> Doha, Qatar</span>
+                    <span><strong>Division:</strong> Core Production</span>
+                </div>
+            </header>
+
+            <div class="fade-in-section">
+                <p>Commanding presence on the exhibition floor requires more than standard visual communication; it demands structural integrity and pristine graphic execution. For this deployment in the Qatar market, our Core Production Division engineered large-scale, modular exhibition assets designed to withstand high-traffic environments while delivering a seamless brand narrative.</p>
+            </div>
+
+            <img src="./images/1920/20310649/hero1-3lc89tM31eQ0LFJB43EQIQ.jpg" alt="Exhibition Setup Angle 1" class="reveal-fade">
+
+            <div class="fade-in-section">
+                <p>Utilizing state-of-the-art wide-format printing technology, we ensured absolute color fidelity mapped directly to the client's corporate identity guidelines. The underlying framework was constructed with lightweight, high-durability aluminum, allowing for rapid assembly and dismantling without compromising architectural stability.</p>
+                <p>By integrating smart design with premium substrates, we empower enterprises to project market dominance. This execution exemplifies our commitment to the intersection of modern aesthetic minimalism and rigorous physical engineering.</p>
+            </div>
+
+            <img src="./images/1920/21343615/hero2-y1Uhj4rddDqx_7s7vuwSlA.jpg" alt="Exhibition Setup Angle 2" class="reveal-fade">
+
+        </article>
+
+        <!-- Right Column: Interactive Sidebar -->
+        <aside class="sidebar-wrapper fade-in-section">
+            <div class="sidebar-panel">
+                <h3>Require a similar execution?</h3>
+                <p>Deploy our Core Production Divisions to actualize your structural branding and exhibition requirements.</p>
+                <a href="#contact" class="btn-primary async-click">Work With Us</a>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- Bottom Panel: Related Assets -->
+    <section class="related-panel fade-in-section">
+        <div class="related-header">
+            <h2>Explore Core Divisions</h2>
+            <a href="project-facades.html" class="related-link async-click">Next: Architectural Shop Facades →</a>
+        </div>
+        
+        <div class="image-gallery-bottom">
+            <img src="./images/460/20853499/sign-board-marssign-services-ORnOBLo2FVAgCn75i3IHmA.jpg" alt="Sign Board Services" class="reveal-fade">
+            <img src="./images/460/20854829/shop-facade-marssign-contact-us-4qo4-RxrtQDIbpQvfnCMsQ.jpg" alt="Retail Shop Facade" class="reveal-fade">
+            <img src="./images/1024/20341072/steps-name-engraved-pen-Kje-d--64G574HPLc-7npQ.jpg" alt="Precision Engraved Assets" class="reveal-fade">
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Mars Signs. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

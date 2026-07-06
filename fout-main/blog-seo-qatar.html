@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevating Corporate Identity in Doha | Mars Signs</title>
+    <link rel="stylesheet" href="project-base.css"> 
+    <style>
+        .blog-container { max-width: 1000px; margin: 120px auto 4rem; padding: 0 2rem; }
+        .blog-header { text-align: center; margin-bottom: 4rem; }
+        .blog-header h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; margin-bottom: 1rem; }
+        .blog-meta { color: var(--text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .blog-featured-image { width: 100%; aspect-ratio: 21/9; object-fit: cover; margin-bottom: 4rem; background: var(--border-color); }
+        .blog-content { display: grid; grid-template-columns: 1fr; gap: 4rem; }
+        @media (min-width: 768px) { .blog-content { grid-template-columns: 1fr 300px; } }
+        .blog-text p { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.8; }
+        .blog-text h2 { font-size: 1.5rem; font-weight: 500; margin: 3rem 0 1rem; color: var(--text-primary); }
+        
+        .blog-sidebar { position: sticky; top: 120px; }
+        .subscribe-box { padding: 2rem; border: 1px solid var(--border-color); background: #fafafa; }
+        .subscribe-box h3 { font-size: 1.1rem; margin-bottom: 1rem; }
+        .subscribe-box input { width: 100%; padding: 0.8rem; border: 1px solid var(--border-color); margin-bottom: 1rem; }
+        .subscribe-box button { width: 100%; padding: 0.8rem; background: var(--text-primary); color: var(--bg-color); border: none; cursor: pointer; transition: transform 0.2s ease; }
+        .subscribe-box button:hover { transform: scale(0.98); }
+    </style>
+</head>
+<body>
+
+    <div class="loading-overlay" id="global-loader"><div class="spinner"></div></div>
+
+    <header id="main-header">
+        <div class="logo">
+            <a href="index.html"><img src="./images/1024/20885491/Mars-logo-PpRQrZOCPddFumb2s9tzmg.svg" alt="Mars Signs"></a>
+        </div>
+        <nav class="nav-links">
+            <a href="blog.html" class="back-btn async-click"><span>←</span> Back to Insights</a>
+        </nav>
+    </header>
+
+    <main class="blog-container">
+        <header class="blog-header fade-in-section">
+            <div class="blog-meta">Brand Strategy &middot; 3 Min Read</div>
+            <h1>Elevating Corporate Identity in Doha</h1>
+        </header>
+
+        <img src="./images/1920/21343615/hero2-y1Uhj4rddDqx_7s7vuwSlA.jpg" alt="Corporate Signage in Doha" class="blog-featured-image fade-in-section">
+
+        <div class="blog-content">
+            <article class="blog-text fade-in-section">
+                <p>In the rapidly expanding and highly competitive Qatar market, a brand’s physical presence is the cornerstone of its corporate identity. From the towering high-rises of West Bay to the bustling retail hubs of Msheireb, capturing audience attention requires precision, innovation, and uncompromising quality.</p>
+                
+                <h2>The Physical Extension of Your Brand</h2>
+                <p>Our Core Production Divisions are meticulously engineered to meet the unique demands of Doha’s commercial landscape, delivering bespoke signage and visual communication strategies that resonate with both local nuances and international standards. We specialize in transforming environments through high-impact exhibition graphics, ensuring your brand commands authority at global trade shows and regional expos.</p>
+
+                <h2>Resilience Meets Aesthetics</h2>
+                <p>For retail and corporate environments, our shop facades and architectural signage are crafted using weather-resistant, premium materials designed to withstand the Gulf climate while maintaining a pristine, minimalist aesthetic. By integrating smart design with state-of-the-art production technology, we empower businesses across Qatar to project dominance and reliability.</p>
+            </article>
+
+            <aside class="blog-sidebar fade-in-section">
+                <div class="subscribe-box">
+                    <h3>Market Intelligence</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Get the latest insights on structural branding in Qatar delivered to your inbox.</p>
+                    <form onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Corporate Email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Related Articles -->
+    <section class="arrangement-container" style="border-top: 1px solid var(--border-color); padding-top: 4rem;">
+        <h2 class="arrangement-header fade-in-section" style="border: none; padding: 0;">Read Next</h2>
+        <div class="project-grid">
+            <a href="blog-materials.html" class="card fade-in-section async-click">
+                <div class="card-image-wrapper">
+                    <img src="./images/460/20853986/about-awards-marssign-nZs4tHucMYXCHmZwZ-hUxQ.jpg" alt="Material Science">
+                </div>
+                <div class="card-meta">Production</div>
+                <h3 class="card-title">Material Resilience in the Gulf</h3>
+            </a>
+            <a href="blog-gifting.html" class="card fade-in-section async-click">
+                <div class="card-image-wrapper">
+                    <img src="./images/1920/21343633/hero3-JCdHeGdqFXvNzEjaSs8ZBg.jpg" alt="Executive Gifting">
+                </div>
+                <div class="card-meta">Micro-Branding</div>
+                <h3 class="card-title">The Tactile Power of Precision Engraving</h3>
+            </a>
+        </div>
+    </section>
+
+    <footer><p>&copy; 2026 Mars Signs. All rights reserved.</p></footer>
+    <script src="app.js"></script>
+</body>
+</html>
