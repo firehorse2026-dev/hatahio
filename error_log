@@ -1,0 +1,10 @@
+[07-Jul-2026 11:58:57 UTC] PHP Warning:  require(PHPMailer/Exception.php): Failed to open stream: No such file or directory in /home/marssign/public_html/api.php on line 7
+[07-Jul-2026 11:58:57 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'PHPMailer/Exception.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/marssign/public_html/api.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/marssign/public_html/api.php on line 7
+[07-Jul-2026 12:20:32 UTC] PHP Warning:  require(PHPMailer/Exception.php): Failed to open stream: No such file or directory in /home/marssign/public_html/api.php on line 7
+[07-Jul-2026 12:20:32 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'PHPMailer/Exception.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/marssign/public_html/api.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/marssign/public_html/api.php on line 7

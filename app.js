@@ -17,10 +17,10 @@ const serviceData = {
             "Large format signage",
             "Corporate identity integration"
         ],
-        images: [
-            "/images/641/20317996/custom-printing2-DIs6ZkFcFRVNW-NbNgKcSg.jpg",
-            "/images/641/20318283/memento-hvbKnPQRfjkemjrtJgW4NA.jpg",
-            "/images/630/20345123/sign2-NvqiqwtMe10I2_JRpzstoA.jpg"
+         images: [
+            "/images/new/signage1.webp",
+            "/images/new/signage2.webp",
+            "/images/new/signage3.webp"
         ]
     },
 
@@ -146,9 +146,9 @@ const serviceData = {
             "Patches & logos"
         ],
         images: [
-            "/images/new/embroidery.jpg",
-            "/images/new/hoodembroidery.jpg",
-            "/images/new/Embroidery.jpg"
+            "/images/new/embroidery.webp",
+            "/images/new/hoodembroidery.webp",
+            "/images/new/Embroidery.webp"
 
         ]
     },
@@ -162,9 +162,9 @@ const serviceData = {
             "Reflective safety markings"
         ],
         images: [
-           "/images/new/brandingvehicle.jpg",
-            "/images/new/businessvehiclebranding.jpg",
-            "/images/new/Vehicle_branding.jpg"        ]
+           "/images/new/brandingvehicle.webp",
+            "/images/new/businessvehiclebranding.webp",
+            "/images/new/Vehicle_branding.webp"        ]
     }
 
 };
