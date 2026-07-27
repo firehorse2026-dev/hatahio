@@ -76,22 +76,24 @@
             list-style: none;
         }
 
-        .feature-grid li {
-            background: var(--bg-silver);
-            padding: 16px 24px;
-            border-radius: 12px;
-            font-weight: 600;
-            color: var(--text-heading);
-            display: flex;
-            align-items: center;
-        }
+.feature-grid li {
+    background: var(--bg-silver);
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    color: var(--text-heading);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-        .feature-grid li::before {
-            content: '✦';
-            color: var(--accent-teal);
-            margin-right: 12px;
-            font-size: 1.2rem;
-        }
+.feature-grid li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-elevation);
+}
+
+
 
         /* Updated CTA Banner to contrast with the strong black button */
         .cta-banner {
@@ -212,8 +214,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return `<img src="${img}" alt="${service.title} manufacturing, fabrication, and installation in Doha, Qatar" loading="lazy" decoding="async" onerror="this.src='/images/dummy.png';">`;
     }).join('');
     
-    // 5. Generate Feature List
-    const featuresHtml = service.features.map(feature => `<li>${feature}</li>`).join('');
+// 5. Generate Feature List
+const featuresHtml = service.features.map(feature => `
+    <li class="product-request" data-product="${feature}">
+        ${feature}
+    </li>
+`).join('');
     
     // 6. Generate the praising "Blog" content based on the service title
     const dynamicPraise = `When it comes to <strong>${service.title.toLowerCase()}</strong>, we understand that quality and precision are non-negotiable. At Mars Sign & Craft, we combine advanced fabrication techniques with premium, weather-resistant materials to deliver results that not only meet industry standards but completely exceed them. <br><br> Your physical presence is an investment in your brand's authority. Our dedicated engineering and creative teams work tirelessly to ensure that every edge, color profile, and structural element reflects your core values perfectly. By choosing our ${service.title.toLowerCase()} solutions, you are securing a visually powerful asset designed for longevity and impact.`;
