@@ -1,4 +1,18 @@
 User-agent: *
 Allow: /
 
+# Legacy query-parameter URLs are 301'd; block crawling of the params
+# so the old ?post= / ?service= forms are not re-discovered.
+Disallow: /*?post=
+Disallow: /*?service=
+
+# The blog category filter writes ?c= for shareability. It is canonicalised
+# back to /blog/, so let Google see it rather than treating it as hidden.
+Allow: /blog/
+
+# Never index tracking-parameter variants
+Disallow: /*?utm_
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+
 Sitemap: https://marssign.com/sitemap.xml
