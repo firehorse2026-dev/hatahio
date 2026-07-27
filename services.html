@@ -220,6 +220,16 @@ const featuresHtml = service.features.map(feature => `
         ${feature}
     </li>
 `).join('');
+
+
+// Generate Promotional Product Cards
+const productsHtml = service.products ? service.products.map(product => `
+
+    <div class="product-card">
+        ...
+    </div>
+
+`).join('') : '';
     
     // 6. Generate the praising "Blog" content based on the service title
     const dynamicPraise = `When it comes to <strong>${service.title.toLowerCase()}</strong>, we understand that quality and precision are non-negotiable. At Mars Sign & Craft, we combine advanced fabrication techniques with premium, weather-resistant materials to deliver results that not only meet industry standards but completely exceed them. <br><br> Your physical presence is an investment in your brand's authority. Our dedicated engineering and creative teams work tirelessly to ensure that every edge, color profile, and structural element reflects your core values perfectly. By choosing our ${service.title.toLowerCase()} solutions, you are securing a visually powerful asset designed for longevity and impact.`;
@@ -254,9 +264,41 @@ const featuresHtml = service.features.map(feature => `
         </article>
     `;
     
-    // Scroll to top automatically on page load
-    window.scrollTo(0, 0);
+    // Make Promotional Products clickable
+if (serviceKey === "promotional") {
+
+    document.querySelectorAll(".product-request").forEach(item => {
+
+        item.addEventListener("click", () => {
+
+            const product = item.dataset.product;
+
+            const phone = "97430753635";
+
+            const message =
+`Hello Mars Arts,
+
+I am interested in ${product}.
+
+Please send me more information and pricing.
+
+Thank you.`;
+
+            const whatsappUrl =
+`https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+            window.open(whatsappUrl, "_blank");
+
+        });
+
+    });
+
+}
+
+// Scroll to top automatically on page load
+window.scrollTo(0, 0);
 });
+
 </script>
 </body>
 </html>

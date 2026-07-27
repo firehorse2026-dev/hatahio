@@ -764,15 +764,17 @@ img { max-width: 100%; display: block; }
     .slideshow-container {
         height: 160px;
     }
-    
+
     .hero-carousel {
         height: 58vh;
     }
-    
-    .grid-container-2, .grid-container-4, .grid-container.reviews-grid {
+
+    .grid-container-2, 
+    .grid-container-4, 
+    .grid-container.reviews-grid {
         grid-template-columns: 1fr;
- 
-   }
+    }
+}
 /* ================= SOCIAL ICONS (BULLETPROOF SIZING) ================= */
 .footer-brand .social-icons {
     display: flex;
