@@ -139,7 +139,42 @@ const serviceData = {
 
 promotional: {
     title: "Promotional Services",
+    
     description: "Create a stronger brand presence with customized promotional products in Qatar. Mars Sign & Craft provides corporate gifts, branded pens, mugs, keychains, T-shirts, caps, bags, and event giveaways designed for businesses, exhibitions, and corporate campaigns.",
+
+    products: [
+        {
+            name: "Corporate Gifts",
+            description: "Premium branded gifts for clients, employees, exhibitions, and corporate events.",
+            image: "/images/new/promotionalitemsqatar.webp"
+        },
+        {
+            name: "Branded Pens",
+            description: "Professional promotional pens customized with your company logo and identity.",
+            image: "/images/new/promotionalitemsqatar.webp"
+        },
+        {
+            name: "Customized Mugs",
+            description: "Personalized mugs ideal for offices, giveaways, and marketing campaigns.",
+            image: "/images/new/promotionalitemsqatar.webp"
+        },
+        {
+            name: "Branded Apparel",
+            description: "Custom T-shirts, caps, and clothing that strengthen your company identity.",
+            image: "/images/new/promotionalitemsqatar.webp"
+        },
+        {
+            name: "Promotional Bags",
+            description: "Branded bags for conferences, exhibitions, and corporate promotions.",
+            image: "/images/new/promotionalitemsqatar.webp"
+        },
+        {
+            name: "Event Giveaways",
+            description: "Customized promotional items designed for memorable events.",
+            image: "/images/new/promotionalitemsqatar.webp"
+        }
+    ],
+
     features: [
         "Corporate gifts",
         "Branded pens",
@@ -151,6 +186,7 @@ promotional: {
         "Event giveaways",
         "Customized promotional items"
     ],
+
     images: [
         "/images/new/promotionalitemsqatar.webp"
     ]
